@@ -48,6 +48,6 @@ and of non-Pivotal projects (such as Rails).
 ## Contribute
 
 Pulse is using Pivotal Tracker to manage development of the project.  Ideas for new features are stored in the icebox.
-Feel free to peruse the stories and tackle one yourself!
+Feel free to peruse the stories and tackle one yourself! [Pulse Tracker Project](https://www.pivotaltracker.com/projects/1456574)
 
 Copyright (c) 2013 Pivotal Labs. This software is licensed under the MIT License.
