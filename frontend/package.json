@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Front end for Pulse",
   "scripts": {
-    "test": "karma start --single-run"
+    "test": "karma start --single-run",
+    "build": "NODE_ENV=production grunt build"
   },
   "repository": {
     "type": "git",
