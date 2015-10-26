@@ -12,7 +12,7 @@
 ProjectMonitor is a CI aggregator to help teams monitor the status of their builds.
 The project consists of 3 primary components:
 * Pulse CI Build API [postman](ci.pivotallabs.com)
-* Pulse Management Tool
+* [Pulse Management Tool](frontend/README.md)
 * Pulse Monitor Display [demo](ci.pivotallabs.com)
 
 ![](https://d1fto35gcfffzn.cloudfront.net/images/labs/tools/project_monitor.png)
