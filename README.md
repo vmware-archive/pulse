@@ -22,7 +22,7 @@ Displaying the status of all your projects' builds on a big screen monitor or TV
 for the development team to triage any issues!
 
 Pulse currently supports:
-* :(
+* WIP - we're doing a refactor!
 
 Roadmap for integration
 * Travis-CI
