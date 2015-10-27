@@ -18,5 +18,6 @@ describe 'Clicking on the add project button', type: :feature do
 
     expect(page.status_code).to eq 200
     expect(anchor_from_url(current_url)).to eq '/projects/new'
+    expect(page).to have_content(/New Project/)
   end
 end

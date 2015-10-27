@@ -15,15 +15,14 @@ class App extends React.Component {
 class NewProject extends React.Component {
     render() {
         return (
-            <div></div>
+            <div>New Project</div>
         );
     }
 }
 
 render((
     <Router>
-        <Route path="/" component={App}>
-            <Route path="projects/new" component={NewProject}/>
-        </Route>
+        <Route path="/" component={App}/>
+        <Route path="projects/new" component={NewProject}/>
     </Router>
 ), document.getElementById("root"));
