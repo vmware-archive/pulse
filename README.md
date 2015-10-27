@@ -24,7 +24,10 @@ for the development team to triage any issues!
 Pulse currently supports:
 * :(
 
-Roadmap for integration:
+Roadmap for integration
+* Travis-CI
+
+List of potential integrations:
 * CircleCI
 * Codeship
 * Concourse
@@ -33,8 +36,6 @@ Roadmap for integration:
 * Semaphore
 * Solano CI (formerly loved as tddium)
 * TeamCity
-* Travis CI
-* Travis CI Pro
 
 We use Pulse internally at Pivotal Labs to display the status of the builds for all our client projects.
 We also have an instance of Pulse running at [ci.pivotallabs.com](ci.pivotallabs.com) that we use for displaying the status of the builds
