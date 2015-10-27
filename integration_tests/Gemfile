@@ -1,0 +1,7 @@
+# A sample Gemfile
+source "https://rubygems.org"
+
+# gem "rails"
+gem 'rspec', '~> 3.3.0', :require => 'spec'
+gem 'capybara', '~> 2.4.4'
+gem 'poltergeist', '~> 1.6.0'
