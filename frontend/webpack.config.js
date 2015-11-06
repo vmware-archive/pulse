@@ -28,5 +28,10 @@ module.exports = {
             // required for ES6
             { test: /\.js$/, loader: 'babel', exclude: [ path.resolve(__dirname, 'node_modules') ]}
         ]
-    }
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            API_HOST_URL: JSON.stringify(process.env.API_HOST_URL || 'http://localhost:8081')
+        })
+    ]
 };

@@ -5,6 +5,7 @@
   "scripts": {
     "start": "grunt",
     "test": "karma start --single-run",
+    "test-chrome": "karma start --browsers Chrome",
     "build": "NODE_ENV=production grunt build"
   },
   "repository": {
@@ -22,10 +23,12 @@
   },
   "homepage": "https://github.com/pivotal/pulse#readme",
   "dependencies": {
+    "axios": "^0.7.0",
     "bootstrap-sass": "^3.3.5",
     "css-loader": "^0.21.0",
+    "es6-promise": "^3.0.2",
     "file-loader": "^0.8.4",
-    "history": "^1.12.6",
+    "history": "^1.13.0",
     "matchdep": "^1.0.0",
     "node-sass": "^3.3.3",
     "react": "^0.14.0",
@@ -33,6 +36,9 @@
     "react-redux": "^4.0.0",
     "react-router": "^1.0.0-rc3",
     "redux": "^3.0.3",
+    "redux-form": "^2.4.5",
+    "redux-router": "^1.0.0-beta4",
+    "redux-thunk": "^1.0.0",
     "sass-loader": "^3.0.0",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.6"
@@ -43,14 +49,18 @@
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-webpack": "^1.0.11",
+    "jasmine-ajax": "^3.2.0",
     "jasmine-core": "^2.3.4",
     "jasmine-node": "^1.14.5",
     "karma": "^0.13.14",
     "karma-chrome-launcher": "^0.2.1",
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
+    "karma-webpack": "^1.7.0",
     "phantomjs": "^1.9.18",
-    "redux-devtools": "^2.1.5",
+    "react-addons-test-utils": "^0.14.0",
+    "redux-mock-store": "0.0.2",
+    "skin-deep": "^0.12.0",
     "webpack": "^1.12.2",
     "webpack-dev-server": "^1.12.1"
   }

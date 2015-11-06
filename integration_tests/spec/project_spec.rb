@@ -5,19 +5,30 @@ require 'capybara/poltergeist'
 Capybara.app_host = "http://localhost:8080"
 Capybara.default_driver = :poltergeist
 
-def anchor_from_url(url)
-  URI.parse(url).fragment.sub(/\?.*/, '')
+describe 'Anchor configures a new project', type: :feature do
+
+  it 'creates a new project' do
+    navigates_to_new_project_page
+    saves_project
+  end
+
 end
 
-describe 'Clicking on the add project button', type: :feature do
+def navigates_to_new_project_page
+  visit '/'
 
-  it 'should redirect to the add project page' do
-    visit '/'
+  click_on 'Add New Project'
 
-    click_on 'Add New Project'
+  expect(page.status_code).to eq 200
+  expect(page).to have_content(/New Project/)
+  expect(current_path).to eq '/projects/new'
+end
 
-    expect(page.status_code).to eq 200
-    expect(anchor_from_url(current_url)).to eq '/projects/new'
-    expect(page).to have_content(/New Project/)
-  end
+def saves_project
+  fill_in 'Name', with: 'My Lovely Project'
+  click_on 'Submit'
+
+  expect(page.status_code).to eq 200
+  expect(page).to have_content(/My Lovely Project was created/)
+  expect(current_path).to eq '/'
 end

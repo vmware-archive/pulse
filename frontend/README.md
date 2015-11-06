@@ -17,6 +17,12 @@ The application will be available at [http://localhost:8080](http://localhost:80
 npm run build
 ```
 
+### Environment Variables
+
+Environment variables can be passed via the command line, e.g. `API_HOST_URL=http://www.example.com npm start`.
+
+* **API_HOST_URL** is a fully-qualified URL root for the API server. *Default:* `http://localhost:8081`.
+
 ## Testing
 
 Unit tests can be run via `npm test`. This uses Karma underneath the hood; if you would like to customize your Karma command line options, feel free to `npm install -g karma-cli`.
