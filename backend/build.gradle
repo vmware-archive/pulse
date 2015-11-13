@@ -35,7 +35,9 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-data-rest')
     compile('org.springframework.boot:spring-boot-starter-web')
-    runtime('org.postgresql:postgresql:9.4-1200-jdbc41')
+    runtime('org.postgresql:postgresql:9.4-1200-jdbc41') {
+        exclude module : 'slf4j-simple'
+    }
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.mockito:mockito-all:1.10.19')
 }
