@@ -1,0 +1,20 @@
+sudo: false
+addons:
+  apt:
+    packages:
+      - gradle
+  postgresql: "9.4"
+language: java
+jdk:
+  - oraclejdk8
+services:
+  - postgresql
+before_install:
+  - rvm install 2.2
+  - rvm use 2.2
+  - nvm install 5.0
+  - nvm use 5.0
+  - createuser -s -w pivotal
+  - createdb -U pivotal pulse
+script:
+  - ./ci/run_all.sh

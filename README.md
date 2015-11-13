@@ -1,4 +1,4 @@
-[Build Status] [code climate] [![Join the chat at https://gitter.im/pivotal/new-project-monitor](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pivotal/new-project-monitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/pivotal/pulse.svg)](https://travis-ci.org/pivotal/pulse) [code climate] [![Join the chat at https://gitter.im/pivotal/new-project-monitor](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pivotal/new-project-monitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 ## Table of Contents

@@ -1,3 +1,4 @@
+import 'phantomjs-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
 import { Route, IndexRoute } from 'react-router';
