@@ -14,7 +14,8 @@ The application will be available at [http://localhost:8080](http://localhost:80
 
 **For deployment**:
 ```
-npm run build
+  $ API_HOST_URL=http://pulse-acceptance-backend.cfapps.io npm run build
+  $ cf push pulse-acceptance-frontend
 ```
 
 ### Environment Variables
