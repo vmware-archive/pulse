@@ -25,11 +25,14 @@ You may manually run database migrations by executing
 ```
 The application will be available at [http://localhost:8081](http://localhost:8081).
 
-**For deployment**:
+**For deployment**:  
+Make sure you have an ElephantSQL service associated with your space/app and set the `DB_NAME` env variable for your
+backend app to the appropriate url to your ElephantSQL service.  
 ```
   $ ./gradlew clean build
-  $ java -jar build/libs/pulse-*.jar
+  $ cf push pulse-acceptance-backend -p build/libs/pulse-*.jar
 ```
+Flyway migrations must be run from your local dev machine and target your ElephantSQL instnace. You will find the appropriate database credentials for Flyway in your ElephantSQL Management Console.  
 
 ### Environment Variables
 `SERVER_PORT`: Sets the http port, defaults to `8081`  
