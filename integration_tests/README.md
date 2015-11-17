@@ -10,3 +10,8 @@ In order for these tests to execute you need to have a front end web server runn
 ```
   $ rspec
 ```
+
+Alternatively you may run the ci script
+```
+  $ cd .. && ./ci/run_all.sh
+```
