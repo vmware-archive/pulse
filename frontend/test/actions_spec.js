@@ -40,5 +40,23 @@ describe('actions', () => {
 
             store.dispatch(actions.createProject(fields));
         });
+
+        it('creates a CREATE_PROJECT_FAILURE action after posting a duplicate project name', (done) => {
+            const fields = {name: 'Persephone'};
+            const expectedActions = [
+                { type: actions.CREATE_PROJECT_FAILURE, payload: fields }
+            ];
+
+            jasmine.Ajax.stubRequest(`${API_HOST_URL}/projects`, undefined, 'POST').andReturn({ status: 409 });
+
+            const store = mockStore({}, expectedActions, (err) => {
+                // error is non-null if there are extra actions we didn't specify; we can ignore these
+                //if (err) throw err;
+                expect(jasmine.Ajax.requests.mostRecent()).toBeDefined('Request was not called');
+                done();
+            });
+
+            store.dispatch(actions.createProject(fields));
+        });
     });
 });

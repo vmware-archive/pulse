@@ -22,14 +22,5 @@ public class PulseApplicationTests {
 
 	}
 
-	@Test
-	public void thereExistsProjectData()  {
-		Project project = new Project();
-
-		project.setName("Foo");
-
-		projectRepository.save(project);
-
-	}
 
 }
