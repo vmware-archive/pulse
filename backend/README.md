@@ -44,3 +44,12 @@ Flyway migrations must be run from your local dev machine and target your Elepha
 ```
   $ ./gradlew clean build
 ```
+## Troubleshooting
+If you receive an error similar to  
+```
+Unable to obtain Jdbc connection from DataSource (jdbc:postgresql://localhost:5432/pulse) for user 'pivotal': Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+  Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+  Connection refused
+  ```
+  This is likely due to the fact that your postgres database is not currently running. You may find information on
+  running your postgres install by executing the `brew info postgres` command.  
