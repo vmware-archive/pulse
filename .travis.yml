@@ -17,4 +17,4 @@ before_install:
   - createuser -s -w pivotal
   - createdb -U pivotal pulse
 script:
-  - ./ci/run_all.sh
+  - ./ci/run.sh test
