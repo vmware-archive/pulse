@@ -44,6 +44,18 @@ and of non-Pivotal projects (such as Rails).
 
 ## Installation
 
+This project uses React and Redux for its frontend component and SpringBoot for its backend api server.
+
+The installation instructions for the frontend can be found [here](https://github.com/pivotal/pulse/blob/master/frontend/README.md)  
+The installation instructions for the backend can be found [here](https://github.com/pivotal/pulse/blob/master/backend/README.md)  
+
+The integration tests are written using Capybara and are located [here](https://github.com/pivotal/pulse/tree/master/integration_tests)  
+
+Each README in their respective folders contains information about running each piece manually, alternatively you may use the
+`run.sh` script in the [ci](https://github.com/pivotal/pulse/blob/master/ci/run.sh) directory to run the tests and start 
+the frontend and backend processes.
+
+
 ## Deployment
 
 ## Contribute
