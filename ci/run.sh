@@ -69,18 +69,30 @@ integration_tests() {
   cd ..
 }
 
+run_unit_tests() {
+  frontend_unit_tests
+  backend_unit_tests
+}
+
+run_integration_tests() {
+  start_servers
+  integration_tests
+}
+
+start_servers() {
+  start_frontend
+  start_backend
+}
 if [ $# -eq 1 ] && [ "$1" != "test" ]; then
   echo "Unknown argument: $1"
   exit 1
 fi
 
-frontend_unit_tests
-start_frontend
-backend_unit_tests
-start_backend
-integration_tests
-
 if [ -z "$1" ]; then
+  start_servers
   echo 'Press any key to exit....'
   read -p "$*"
+else
+  run_unit_tests
+  run_integration_tests
 fi
