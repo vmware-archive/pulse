@@ -6,9 +6,10 @@ export default class Alert extends React.Component {
     }
     render() {
         return this.hasContent() && (
-            <div className="alert alert-info" role="alert">
+            <div className={`alert alert-${this.props.type}`} role="alert">
                 {this.props.message}
             </div>
         );
     }
 }
+

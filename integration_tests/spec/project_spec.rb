@@ -13,7 +13,9 @@ describe 'Anchor configures a new project', type: :feature do
 
   it 'displays an error alert on project name duplicate' do
     navigates_to_new_project_page
-    saves_duplicate_project_name
+    name = saves_project
+    navigates_to_new_project_page
+    saves_duplicate_project_name(name)
   end
 end
 
@@ -28,19 +30,23 @@ def navigates_to_new_project_page
 end
 
 def saves_project
-  fill_in 'Name', with: 'My Lovely Project'
+  name = 'My Lovely Project' + Time.now.to_f.to_s
+  fill_in 'Name', with: name
   click_on 'Submit'
 
   expect(page.status_code).to eq 200
-  expect(page).to have_content(/My Lovely Project was created/)
+  expect(page).to have_css('.alert-info')
+  expect(page).to have_content(/#{name}/)
   expect(current_path).to eq '/'
+  name
 end
 
-def saves_duplicate_project_name
-  fill_in 'Name', with: 'My Lovely Project'
+def saves_duplicate_project_name(name)
+  fill_in 'Name', with: name
   click_on 'Submit'
 
   expect(page.status_code).to eq 200
+  expect(page).to have_css('.alert-danger')
   expect(page).to have_content(/Project name already exists/)
   expect(current_path).to eq '/projects/new'
 end
