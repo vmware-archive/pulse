@@ -17,6 +17,7 @@ module.exports = function (config) {
         files: [
             // TODO investigate webpack.ProvidePlugin
             'node_modules/babel-core/browser-polyfill.js',
+            'test/support/*.js',
             'test/**/*_spec.js'
         ],
 
@@ -25,7 +26,14 @@ module.exports = function (config) {
         exclude: [],
 
         webpack: {
-            module: webpackConfig.module,
+            externals: {
+                'react/lib/ExecutionEnvironment': true
+            },
+            module: {
+                loaders: (webpackConfig.module.loaders || []).concat(
+                    { test: /\.json$/, loader: 'json' }
+                )
+            },
             plugins: (webpackConfig.plugins || []).concat(
                 new webpack.IgnorePlugin(/ReactContext/)
             )
@@ -34,7 +42,7 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'test/**/*_spec.js': ['webpack']
+            'test/**/*.js': ['webpack']
         },
 
 
