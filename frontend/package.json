@@ -59,7 +59,7 @@
     "karma": "^0.13.14",
     "karma-chrome-launcher": "^0.2.1",
     "karma-jasmine": "^0.3.6",
-    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-phantomjs-launcher": "^1.0.2",
     "karma-webpack": "^1.7.0",
     "phantomjs": "^1.9.18",
     "react-addons-test-utils": "^0.14.0",
