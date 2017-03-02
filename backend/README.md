@@ -9,7 +9,7 @@
 ```
 
 ## Database Setup
-Pulse currently support PostgreSQL 9.4 and you will need a database user and database created *before* database migration
+Pulse currently supports PostgreSQL 9.4 and you will need a database user (default: pivotal with blank password) and database (default: pulse) created *before* database migration
 are executed.
 
 You may manually run database migrations by executing

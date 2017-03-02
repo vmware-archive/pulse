@@ -18,7 +18,7 @@ module.exports = function (config) {
             // TODO investigate webpack.ProvidePlugin
             'node_modules/babel-core/browser-polyfill.js',
             'test/support/*.js',
-            'test/**/*_spec.js'
+            { pattern: 'test/**/*_spec.js', watched: false }
         ],
 
 
@@ -26,6 +26,7 @@ module.exports = function (config) {
         exclude: [],
 
         webpack: {
+            devtool: 'inline-source-map',
             externals: {
                 'react/lib/ExecutionEnvironment': true
             },
@@ -42,7 +43,7 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'test/**/*.js': ['webpack']
+            'test/**/*.js': ['webpack', 'sourcemap']
         },
 
 
@@ -73,12 +74,12 @@ module.exports = function (config) {
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
         browsers: ['PhantomJS'],
 
-        plugins: [
-            'karma-chrome-launcher',
-            'karma-jasmine',
-            'karma-phantomjs-launcher',
-            'karma-webpack'
-        ],
+        // plugins: [
+        //     'karma-chrome-launcher',
+        //     'karma-jasmine',
+        //     'karma-phantomjs-launcher',
+        //     'karma-webpack'
+        // ],
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits

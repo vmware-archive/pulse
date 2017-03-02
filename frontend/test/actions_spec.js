@@ -4,6 +4,11 @@ import thunkMiddleware from 'redux-thunk';
 import * as actions from '../app/js/actions';
 
 describe('actions', () => {
+    let mockStore;
+    beforeEach(() => {
+        mockStore = configureStore([thunkMiddleware]);
+    });
+
     describe('createProjectSuccess', () => {
         it('should create an action with a successfully created project', () => {
             let createdProject = {id: 1, name: 'George'};
@@ -15,7 +20,6 @@ describe('actions', () => {
     });
 
     describe('createProject', () => {
-        const mockStore = configureStore([thunkMiddleware]);
         beforeEach(function() {
             jasmine.Ajax.install();
         });
@@ -57,6 +61,20 @@ describe('actions', () => {
             });
 
             store.dispatch(actions.createProject(fields));
+        });
+    });
+
+    describe('getProjects', () => {
+        it('fetches the projects from the server', (done) => {
+            jasmine.Ajax.stubRequest(`${API_HOST_URL}/projects`).andReturn([{ id: 1 }]);
+            const expectedActions = [
+                // { type: 'GET_PROJECTS' }
+            ];
+            const store = mockStore({}, expectedActions, (err) => {
+                // expect(jasmine.Ajax.requests.mostRecent()).toBeDefined('Request was not called');
+                done();
+            });
+            store.dispatch(actions.getProjects());
         });
     });
 });

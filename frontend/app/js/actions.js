@@ -1,9 +1,10 @@
-import { post } from 'axios';
+import { post, get } from 'axios';
 import { pushState } from 'redux-router';
 import 'es6-promise';
 
 export const CREATE_PROJECT_SUCCESS = 'CREATE_PROJECT_SUCCESS';
 export const CREATE_PROJECT_FAILURE = 'CREATE_PROJECT_FAILURE';
+export const GET_PROJECTS = 'GET_PROJECTS';
 
 
 export function createProjectSuccess(payload) {
@@ -33,5 +34,12 @@ export function createProject(payload) {
                     dispatch(createProjectFailure({...payload, data: message}));
                 }
             });
+    };
+}
+
+export function getProjects() {
+    console.log('is this ever called?');
+    return (dispatch) => {
+        return get(`${API_HOST_URL}/projects`);
     };
 }
