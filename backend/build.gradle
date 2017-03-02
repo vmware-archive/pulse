@@ -1,13 +1,12 @@
 buildscript {
     ext {
-        springBootVersion = '1.2.7.RELEASE'
+        springBootVersion = '1.5.1.RELEASE'
     }
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}") 
-        classpath('io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE')
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath('org.flywaydb:flyway-gradle-plugin:3.2.1')
     }
 }
@@ -16,15 +15,13 @@ apply plugin: 'org.flywaydb.flyway'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'spring-boot' 
-apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
 
 jar {
     baseName = 'pulse'
     version = '0.0.1-SNAPSHOT'
 }
 sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -33,26 +30,15 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
-    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    compile('org.flywaydb:flyway-core')
     compile('org.springframework.boot:spring-boot-starter-web')
-    runtime('org.postgresql:postgresql:9.4-1200-jdbc41') {
-        exclude module : 'slf4j-simple'
-    }
+    runtime('org.postgresql:postgresql')
+    compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('org.mockito:mockito-all:1.10.19')
 }
 
 
-eclipse {
-    classpath {
-         containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-         containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
-    }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.7'
-}
 
 flyway {
     url = 'jdbc:postgresql://localhost:5432/pulse'
