@@ -9,21 +9,11 @@ describe('actions', () => {
         mockStore = configureStore([thunkMiddleware]);
     });
 
-    describe('createProjectSuccess', () => {
-        it('should create an action with a successfully created project', () => {
-            let createdProject = {id: 1, name: 'George'};
-            expect(actions.createProjectSuccess(createdProject)).toEqual({
-                type: actions.CREATE_PROJECT_SUCCESS,
-                payload: createdProject
-            });
-        });
-    });
-
     describe('createProject', () => {
-        beforeEach(function() {
+        beforeEach(function () {
             jasmine.Ajax.install();
         });
-        afterEach(function() {
+        afterEach(function () {
             jasmine.Ajax.uninstall();
         });
 
@@ -65,13 +55,22 @@ describe('actions', () => {
     });
 
     describe('getProjects', () => {
+        beforeEach(function () {
+            jasmine.Ajax.install();
+        });
+
+        afterEach(function () {
+            jasmine.Ajax.uninstall();
+        });
+
         it('fetches the projects from the server', (done) => {
-            jasmine.Ajax.stubRequest(`${API_HOST_URL}/projects`).andReturn([{ id: 1 }]);
+            let projectsResponse = [{ id: 1, name: 'George' }, { id: 2, name: 'Sam' }];
             const expectedActions = [
-                // { type: 'GET_PROJECTS' }
+                { type: 'GET_PROJECTS', projects: projectsResponse }
             ];
+            jasmine.Ajax.stubRequest(`${API_HOST_URL}/projects`, undefined, 'GET').andReturn({ data: projectsResponse });
             const store = mockStore({}, expectedActions, (err) => {
-                // expect(jasmine.Ajax.requests.mostRecent()).toBeDefined('Request was not called');
+                expect(jasmine.Ajax.requests.mostRecent()).toBeDefined('Request was not called');
                 done();
             });
             store.dispatch(actions.getProjects());

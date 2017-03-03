@@ -15,7 +15,7 @@ describe('Home Container', () => {
     expect(rendered).toHaveProp('projects', [{ name: 'first project' },
       { name: 'second project' }]);
   });
-
+  
   it('passes the getProjects action to the Home component', () => {
     spyOn(actions, 'getProjects').and.returnValue({ type: 'return value of getProjects' });
     const initialState = {

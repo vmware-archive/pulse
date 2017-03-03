@@ -14,7 +14,7 @@ import {
 import { createHistory } from 'history';
 
 import App from './containers/app';
-import Home from './components/home';
+import Home from './containers/home';
 import NewProject from './containers/new_project';
 import reducers from './reducers';
 

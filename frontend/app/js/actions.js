@@ -7,13 +7,18 @@ export const CREATE_PROJECT_FAILURE = 'CREATE_PROJECT_FAILURE';
 export const GET_PROJECTS = 'GET_PROJECTS';
 
 
-export function createProjectSuccess(payload) {
+function createProjectSuccess(payload) {
     return {type: CREATE_PROJECT_SUCCESS, payload};
 }
 
-export function createProjectFailure(payload) {
+function createProjectFailure(payload) {
     return {type: CREATE_PROJECT_FAILURE, payload};
 }
+
+export function getProjectsSuccess(payload) {
+    return { type: GET_PROJECTS, payload };
+}
+
 
 export function createProject(payload) {
     return (dispatch) => {
@@ -36,10 +41,11 @@ export function createProject(payload) {
             });
     };
 }
-
 export function getProjects() {
-    console.log('is this ever called?');
     return (dispatch) => {
-        return get(`${API_HOST_URL}/projects`);
+        return get(`${API_HOST_URL}/projects`)
+            .then((response) => {
+                dispatch(getProjectsSuccess(response.data))
+            });
     };
 }

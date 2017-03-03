@@ -7,6 +7,10 @@ export default class Home extends React.Component {
         this.renderProjectList = this.renderProjectList.bind(this);
     }
 
+    componentDidMount(){
+        this.props.getProjects();
+    }
+
     renderProjectList() {
         return (
             this.props.projects.map((project, index) => (
